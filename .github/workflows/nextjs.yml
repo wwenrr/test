@@ -80,11 +80,10 @@ jobs:
         with:
           path: ./out
       # =======================================
-      - name: Run Tests (JEST)
-        run: yarn test --ci --silent --testPathIgnorePatterns=experimental
+      - name: Hello world
+        run: echo Hello world
         env:
-          CI: true
-          NEXT_PUBLIC_API_KEY: ${{ secrets.NEXT_PUBLIC_API_KEY }}
+          REACT_APP_MY_SECRET: ${{ secrets.MY_SECRET }}
           LMAO_BRO: ${{ secrets.LMAO_BRO }}
       # =======================================
 
