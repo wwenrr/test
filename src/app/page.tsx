@@ -6,7 +6,7 @@ export default function Home() {
 
   return (
     <div style={{fontSize: '150px'}}>
-        {secretKey}
+        API key là: {secretKey ? secretKey : "không tìm thấy"}
     </div>
   );
 }
