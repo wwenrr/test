@@ -84,7 +84,7 @@ jobs:
       - uses: oNaiPs/secrets-to-env-action@v1
         with:
           secrets: ${{ toJSON(secrets) }}
-      - run: echo "Value of MY_SECRET1: $MY_SECRET1"
+      # - run: echo "Value of MY_SECRET1: $MY_SECRET1"
 
   # Deployment job
   deploy:
