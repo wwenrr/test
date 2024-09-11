@@ -29,6 +29,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # =======================================
+      - name: Hello world
+        run: |
+          touch .env.local
+          echo NEXT_PUBLIC_API_KEY=${{ secrets.NEXT_PUBLIC_API_KEY }} >> .env.local
+          echo LMAO_BRO=${{ secrets.LMAO_BRO }} >> .env.local
+          yarn build
+      # =======================================
       - name: Checkout
         uses: actions/checkout@v4
       - name: Detect package manager
@@ -79,14 +87,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
-      # =======================================
-      - name: Hello world
-        run: |
-          touch .env.local
-          echo NEXT_PUBLIC_API_KEY=${{ secrets.NEXT_PUBLIC_API_KEY }} >> .env.local
-          echo LMAO_BRO=${{ secrets.LMAO_BRO }} >> .env.local
-          yarn build
-      # =======================================
+      
 
   # Deployment job
   deploy:
