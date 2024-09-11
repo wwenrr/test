@@ -5,9 +5,8 @@ export default function Home() {
   console.log(secretKey)
 
   return (
-    <div style={{fontSize: '50px'}}>
+    <div style={{fontSize: '25px'}}>
         API key là: {secretKey ? secretKey : "không tìm thấy"}
-        LMAO: {process.env.LMAO_BRO}
     </div>
   );
 }
