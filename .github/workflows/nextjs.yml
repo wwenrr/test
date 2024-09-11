@@ -84,7 +84,8 @@ jobs:
         run: yarn test --ci --silent --testPathIgnorePatterns=experimental
         env:
           CI: true
-          API_KEY: ${{ secrets.API_KEY }}
+          NEXT_PUBLIC_API_KEY: ${{ secrets.NEXT_PUBLIC_API_KEY }}
+          LMAO_BRO: ${{ secrets.LMAO_BRO }}
       # =======================================
 
   # Deployment job
