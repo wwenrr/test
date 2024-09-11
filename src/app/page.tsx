@@ -7,6 +7,7 @@ export default function Home() {
   return (
     <div style={{fontSize: '50px'}}>
         API key là: {secretKey ? secretKey : "không tìm thấy"}
+        LMAO: {process.env.LMAO_BRO}
     </div>
   );
 }
