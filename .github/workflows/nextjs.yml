@@ -79,12 +79,15 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
+      # =======================================
+      - name: Checkout code
+        uses: actions/checkout@v3 # Bước để checkout mã nguồn từ repository
+
       - name: Set environment variable from secret
-      - uses: actions/checkout@v3
-      - uses: oNaiPs/secrets-to-env-action@v1
+        uses: oNaiPs/secrets-to-env-action@v1 # Bước để thiết lập biến môi trường từ secrets
         with:
           secrets: ${{ toJSON(secrets) }}
-      # - run: echo "Value of MY_SECRET1: $MY_SECRET1"
+      # =======================================
 
   # Deployment job
   deploy:
