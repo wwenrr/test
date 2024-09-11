@@ -80,10 +80,10 @@ jobs:
         with:
           path: ./out
       - name: Set environment variable from secret
-        run: echo "SECRET_KEY=${{ secrets.SECRET_KEY }}" >> $GITHUB_ENV
+        run: echo "NEXT_PUBLIC_API_KEY=${{ secrets.NEXT_PUBLIC_API_KEY }}" >> .env.local
 
       - name: Show environment variable
-        run: echo $SECRET_KEY
+        run: cat .env.local
 
   # Deployment job
   deploy:
