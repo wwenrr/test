@@ -5,7 +5,7 @@ export default function Home() {
   console.log(secretKey)
 
   return (
-    <div style={{fontSize: '150px'}}>
+    <div style={{fontSize: '50px'}}>
         API key là: {secretKey ? secretKey : "không tìm thấy"}
     </div>
   );
