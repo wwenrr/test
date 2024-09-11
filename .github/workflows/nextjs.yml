@@ -53,14 +53,6 @@ jobs:
         with:
           node-version: "20"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
-      # =======================================
-      - name: Hello world
-        run: |
-          touch .env.local
-          echo NEXT_PUBLIC_API_KEY=${{ secrets.NEXT_PUBLIC_API_KEY }} >> .env.local
-          echo LMAO_BRO=${{ secrets.LMAO_BRO }} >> .env.local
-          yarn build
-      # =======================================
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
@@ -81,6 +73,14 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      # =======================================
+      - name: Hello world
+        run: |
+          touch .env.local
+          echo NEXT_PUBLIC_API_KEY=${{ secrets.NEXT_PUBLIC_API_KEY }} >> .env.local
+          echo LMAO_BRO=${{ secrets.LMAO_BRO }} >> .env.local
+          yarn build
+      # =======================================
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Upload artifact
