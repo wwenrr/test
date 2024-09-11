@@ -80,10 +80,22 @@ jobs:
         with:
           path: ./out
       # =======================================
-      - name: Test application
+      - name: Hello world
+        run: echo Hello world
         env:
           NEXT_PUBLIC_API_KEY: ${{ secrets.NEXT_PUBLIC_API_KEY }}
           LMAO_BRO: ${{ secrets.LMAO_BRO }}
+
+      - name: Check environment variables
+        run: |
+          if [ "${{ secrets.NEXT_PUBLIC_API_KEY }}" == "1234" ]; then
+            echo "I know what the secret token is!"
+          else
+            echo "nah??"
+          fi
+          
+      - name: Check environment variables
+        run: env
       # =======================================
 
   # Deployment job
