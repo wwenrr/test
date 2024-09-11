@@ -73,30 +73,21 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      # =======================================
+      - name: Hello world
+        run: |
+          touch .env.local
+          echo NEXT_PUBLIC_API_KEY=${{ secrets.NEXT_PUBLIC_API_KEY }} >> .env.local
+          echo LMAO_BRO=${{ secrets.LMAO_BRO }} >> .env.local
+          yarn build
+      # =======================================
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
-      # =======================================
-      - name: Hello world
-        run: echo Hello world
-        env:
-          NEXT_PUBLIC_API_KEY: ${{ secrets.NEXT_PUBLIC_API_KEY }}
-          LMAO_BRO: ${{ secrets.LMAO_BRO }}
-
-      - name: Check environment variables
-        run: |
-          if [ "${{ secrets.NEXT_PUBLIC_API_KEY }}" == "1234" ]; then
-            echo "I know what the secret token is!"
-          else
-            echo "nah??"
-          fi
-          
-      - name: Check environment variables
-        run: env
-      # =======================================
+      
 
   # Deployment job
   deploy:
