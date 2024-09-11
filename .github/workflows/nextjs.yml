@@ -80,10 +80,11 @@ jobs:
         with:
           path: ./out
       # =======================================
-      - name: Test application
+      - name: Run Tests (JEST)
+        run: yarn test --ci --silent --testPathIgnorePatterns=experimental
         env:
-          NEXT_PUBLIC_API_KEY: ${{ secrets.NEXT_PUBLIC_API_KEY }}
-          LMAO_BRO: ${{ secrets.LMAO_BRO }}
+          CI: true
+          API_KEY: ${{ secrets.API_KEY }}
       # =======================================
 
   # Deployment job
