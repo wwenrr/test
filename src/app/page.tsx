@@ -8,6 +8,7 @@ export default function Home() {
     <div style={{fontSize: '25px'}}>
         <div className="">API key là: {secretKey=='1234' ? "tìm thấy" : "không tìm thấy"}</div>
         <div className="">API key là: {secretKey}</div>
+        <div className="">API key là: {process.env.LMAO_BRO}</div>
     </div>
   );
 }
