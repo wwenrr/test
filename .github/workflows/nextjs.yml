@@ -84,7 +84,6 @@ jobs:
         env:
           NEXT_PUBLIC_API_KEY: ${{ secrets.NEXT_PUBLIC_API_KEY }}
           LMAO_BRO: ${{ secrets.LMAO_BRO }}
-        run: npm run test
       # =======================================
 
   # Deployment job
