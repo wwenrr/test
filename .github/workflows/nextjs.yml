@@ -78,7 +78,10 @@ jobs:
         env:
           NEXT_PUBLIC_API_KEY: ${{ secrets.NEXT_PUBLIC_API_KEY }}
           LMAO_BRO: ${{ secrets.LMAO_BRO }}
-        run: yarn build
+        run: |
+          NEXT_PUBLIC_API_KEY=${NEXT_PUBLIC_API_KEY} 
+          LMAO_BRO=${LMAO_BRO} 
+          yarn build
 
       # - name: Hello world
       #   run: |
