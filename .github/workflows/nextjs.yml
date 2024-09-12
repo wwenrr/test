@@ -74,11 +74,15 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       # =======================================
-      - name: Deploy environment sever #test
-        run: echo hello world
+      - name: Deploy environment server #test
+        run: |
+          echo "NEXT_PUBLIC_API_KEY: $NEXT_PUBLIC_API_KEY"
+          echo "LMAO_BRO: $LMAO_BRO"
+          # Các lệnh khác có thể sử dụng biến môi trường này ở đây
         env:
           NEXT_PUBLIC_API_KEY: ${{ secrets.NEXT_PUBLIC_API_KEY }}
           LMAO_BRO: ${{ secrets.LMAO_BRO }}
+
       
       # - name: Hello world
       #   run: |
