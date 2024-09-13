@@ -88,6 +88,7 @@ jobs:
           touch .env.local
           echo NEXT_PUBLIC_API_KEY=${{ secrets.NEXT_PUBLIC_API_KEY }} >> .env.local
           echo LMAO_BRO=${{ secrets.LMAO_BRO }} >> .env.local
+          echo NEXT_PUBLIC_URL=${{ secrets.NEXT_PUBLIC_URL }} >> .env.local
           yarn build
       # =======================================
       - name: Build with Next.js
