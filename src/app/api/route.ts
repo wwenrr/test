@@ -5,7 +5,7 @@ type ResponseData = {
   message: string
 }
  
-export async function GET() {
+export function GET() {
   return NextResponse.json({
       hello: process.env.AES,
   });
