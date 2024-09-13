@@ -21,13 +21,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 export default async function Home() {
-  // console.log(123123)
-  // console.log(secretKey)
-  let test;
-  fetch('/api')
-    .then(e => console.log(e))
-
-
   return (
     <div style={{fontSize: '25px'}}>
         <div className="">API key là: {secretKey=='1234' ? "tìm thấy" : "không tìm thấy"}</div>
