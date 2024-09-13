@@ -4,9 +4,12 @@
     text-align: center;
     
     input {
-        height: 2vw;
+        height: 5vh;
         border-radius: 20px;
-        width: 15vw;
+        width: 25vw;
+        min-width: 35vh;
+        text-align: center;
+        font-size: 100%;
     }
 
     div {
