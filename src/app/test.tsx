@@ -140,6 +140,11 @@ export default function Main( {props}:any) {
         }
     }
 
+    useEffect(() => {
+      fetch('/api')
+        .then(e => console.log(e))
+    }, [])
+
     return(
         <>
             <div style={{fontSize: '25px'}} className="main">
