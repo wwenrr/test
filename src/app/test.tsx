@@ -121,7 +121,7 @@ export default function Main( {props}:any) {
     const [text, setText] = useState('nhập đại số nào đi')
       
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
-        value = parseInt(e.target.value.replace(/\./g, '')); 
+        value = e.target.value.length === 0 ? 0 : parseInt(e.target.value.replace(/\./g, '')); 
 
         if(value === 0) {
           setText('nhập đại số nào đi')
@@ -134,6 +134,7 @@ export default function Main( {props}:any) {
           setText("Số lớn quá thì chịu rồi! :<")
         }
         else {
+
           setText(prev => readNumber(value))
           e.target.value = new Intl.NumberFormat('vi-VN').format(value);
         }
