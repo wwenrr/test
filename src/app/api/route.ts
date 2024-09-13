@@ -7,6 +7,6 @@ type ResponseData = {
  
 export function GET() {
   return NextResponse.json({
-      hello: process.env.AES,
+      hello: "hello",
   });
 }

@@ -141,8 +141,14 @@ export default function Main( {props}:any) {
     }
 
     useEffect(() => {
-      console.log("api key là: ", process.env.NEXT_PUBLIC_URL)
+      console.log("api key là: ", process.env.NEXT_PUBLIC_URL?.toString())
+      console.log("fetching from ", `${process.env.NEXT_PUBLIC_URL}/api`)
       fetch(`${process.env.NEXT_PUBLIC_URL}/api`)
+        .then(e => {
+          console.log(e)
+          return e
+        })
+        .then(e => e.json())
         .then(e => console.log(e))
     }, [])
 
