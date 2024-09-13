@@ -1,10 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { NextResponse, type NextRequest } from 'next/server'
 export const dynamic = 'force-static'
- 
-type ResponseData = {
-  message: string
-}
 
 let handling = 0;
  
