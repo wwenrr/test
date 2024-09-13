@@ -2,15 +2,13 @@
 
 import React, { useEffect } from "react";
 import { useState } from "react";
+import './style.scss'
 
 export default function Main( {props}:any) {
-    const [text, setText] = useState('wfef')
+    const [text, setText] = useState('nhập đại số nào đi')
 
-    const foo = (e:string) => {
-        
-    }
     const readNumber = (num: number): string => {
-        if(isNaN(num)) return "err"
+        if(isNaN(num)) return "kêu nhập số không nhập, nhập cái khác ăn cc à cu"
       
         const length = (num: number): number => {
           return num.toString().length;
@@ -34,27 +32,27 @@ export default function Main( {props}:any) {
           if(num === 0) return ""
           if(len >= 2) {
             let output = "";
-            const so_thu_hai:any = num % 10
+            const so_thu_hai = num % 10
             const so_thu_nhat = Math.floor(num/10);
             
             if(so_thu_nhat === 1) {
               output = "mười";
               if(so_thu_hai === 5) output += " lăm"
               else if(so_thu_hai === 0) output += ""
-              else output += " "+tien[so_thu_hai.toString()]
+              else output += " " + tien[so_thu_hai.toString() as keyof typeof tien];
             }
             else {
-              output = tien[so_thu_nhat.toString()] + " mươi";
+              output = tien[so_thu_nhat.toString() as keyof typeof tien] + " mươi";
       
               if(so_thu_hai === 5) output += " lăm"
               else if(so_thu_hai === 1) output += " mốt"
               else if(so_thu_hai === 0) output += ""
-              else output += " "+tien[so_thu_hai.toString()]
+              else output += " "+tien[so_thu_hai.toString() as keyof typeof tien]
             }
       
             return output
           }
-          else return tien[num.toString()]
+          else return tien[num.toString() as keyof typeof tien]
         }
       
         const hang_tram = (num:number) : string => {
@@ -63,11 +61,11 @@ export default function Main( {props}:any) {
           const tram = Math.floor(num/100) % 10
       
           if(chuc === 0 && don_vi !== 0) {
-            return tien[tram.toString()] + " trăm" + " lẻ " + tien[don_vi];
+            return tien[tram.toString() as keyof typeof tien] + " trăm" + " lẻ " + tien[don_vi as unknown as keyof typeof tien];
           }
           const hai_so_dau:string = hang_chuc(chuc*10 + don_vi)
       
-          return tien[tram.toString()] + " trăm" + (hai_so_dau !== "" ? (" " + hai_so_dau) : "");
+          return tien[tram.toString() as unknown as keyof typeof tien] + " trăm" + (hai_so_dau !== "" ? (" " + hai_so_dau) : "");
         }
       
         const main = (num:number) : string => {
@@ -101,13 +99,13 @@ export default function Main( {props}:any) {
                 console.log(output)
                 if(save === 0) {output = output + " đồng"}
               }
-              else output = output + " " + hang_tram(parseInt(s)) + " " + don_vi[save.toString()]
+              else output = output + " " + hang_tram(parseInt(s)) + " " + don_vi[save.toString() as unknown as keyof typeof don_vi]
             }
             else if(s.length == 2) {
-              output = output + " " + hang_chuc(parseInt(s)) + " " + don_vi[save.toString()]
+              output = output + " " + hang_chuc(parseInt(s)) + " " + don_vi[save.toString() as unknown as keyof typeof don_vi]
             }
             else {
-              output = output + " " + tien[s] + " " + don_vi[save.toString()]
+              output = output + " " + tien[s as unknown as keyof typeof tien] + " " + don_vi[save.toString() as unknown as keyof typeof don_vi] 
             }
           }
       
@@ -123,7 +121,7 @@ export default function Main( {props}:any) {
 
     return(
         <>
-            <div style={{fontSize: '25px'}}>
+            <div style={{fontSize: '25px'}} className="main">
                 <input type="text" onChange={handleChange}/>
                 <div className="">{text}</div>
             </div>
