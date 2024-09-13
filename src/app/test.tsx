@@ -4,8 +4,13 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import './style.scss'
 
+
+let value:number = 0;
 const readNumber = (num: number): string => {
-  if(isNaN(num)) return "kêu nhập số không nhập, nhập cái khác ăn cc à cu"
+  if(isNaN(num)) {
+    value = 0;
+    return "kêu nhập số không nhập, nhập cái khác ăn cc à cu"
+  }
 
   const length = (num: number): number => {
     return num.toString().length;
@@ -112,8 +117,6 @@ const readNumber = (num: number): string => {
   return main(num);
 }
 
-let value:number = 0;
-
 export default function Main( {props}:any) {
     const [text, setText] = useState('nhập đại số nào đi')
       
@@ -122,6 +125,10 @@ export default function Main( {props}:any) {
 
         if(value === 0) {
           setText('nhập đại số nào đi')
+        }
+        else if(Number.isNaN(value)) {
+          setText("kêu nhập số không nhập, nhập cái khác ăn cc à cu");
+          value = 0;
         }
         else if(value.toString().length > 18) {
           setText("Số lớn quá thì chịu rồi! :<")
