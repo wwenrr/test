@@ -7,7 +7,8 @@ let handling = 0;
 export async function GET() {
  
   return Response.json({
-    "handling": handling++
+    "handling": handling++,
+    "cors": process.env.NEXT_PUBLIC_URL,
   }
   , {
     status: 200,

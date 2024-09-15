@@ -152,7 +152,9 @@ export default function Main( {props}:any) {
                 <div className="">{text}</div>
                 <button onClick={ () => 
                   {
-                    fetch(`${process.env.NEXT_PUBLIC_URL}/api`)
+                    const gitURL:string = `${process.env.NEXT_PUBLIC_URL}/api`
+                    const URL:string = `/api`
+                    fetch(gitURL)
                       .then(e => e.json())
                       .then(e => console.log(e))
                   }
