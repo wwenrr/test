@@ -143,22 +143,24 @@ export default function Main( {props}:any) {
     useEffect(() => {
       console.log("api key là: ", process.env.NEXT_PUBLIC_URL?.toString())
       console.log("fetching from ", `${process.env.NEXT_PUBLIC_URL}/api`)
+      console.log(props)
     }, [])
 
     return(
         <>
             <div style={{fontSize: '25px'}} className="main">
-                <input type="text" onChange={handleChange}/>
-                <div className="">{text}</div>
+                {/* <input type="text" onChange={handleChange}/> */}
+                {/* <div className="">{text}</div> */}
                 <button onClick={ () => 
                   {
-                    const gitURL:string = `${process.env.NEXT_PUBLIC_URL}/api`
+                    const gitURL:string = `https://wwenrr.github.io/test/api`
                     const URL:string = `/api`
-                    fetch(gitURL)
+                    console.log(URL)
+                    fetch(URL)
                       .then(e => e.json())
                       .then(e => console.log(e))
                   }
-                }>Click me</button>
+                }>{props.handling}</button>
             </div>
         </>
     )
