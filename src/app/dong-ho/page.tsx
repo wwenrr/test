@@ -7,7 +7,9 @@ export default function Page() {
 
     useEffect(() => {
         const intervalID =  setInterval(() => {
-            setTime(prev => new Date())
+            const now = new Date();
+            setTime(now);
+            document.title = formatTime(now);
         }, 1000)
 
         return () => {
@@ -15,26 +17,25 @@ export default function Page() {
         }
       }, []);
 
-    function formatDate() {
-        if (!(time instanceof Date)) return '';
+      function formatDate(date: Date|boolean) {
+        if (!(date instanceof Date)) return '';
 
         const daysOfWeek = ["Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"];
-        const dayOfWeek = daysOfWeek[time.getDay()];
-        const date = time.getDate();
-        const month = time.getMonth() + 1; // Tháng 0-11, cộng thêm 1 để có tháng 1-12
-        const year = time.getFullYear();
-        
+        const dayOfWeek = daysOfWeek[date.getDay()];
+        const day = date.getDate();
+        const month = date.getMonth() + 1; // Tháng 0-11, cộng thêm 1 để có tháng 1-12
+        const year = date.getFullYear();
 
-        return `${dayOfWeek}, ${date}/${month}/${year}\n `;
+        return `${dayOfWeek}, ${day}/${month}/${year}`;
     }
 
-    function formatTime() {
-        if (!(time instanceof Date)) return '';
+    function formatTime(date: Date|boolean) {
+        if (!(date instanceof Date)) return '';
 
-        const hour = (time.getHours() % 12 || 12).toString().padStart(2, '0');
-        const min = time.getMinutes().toString().padStart(2, '0');
-        const sec = time.getSeconds().toString().padStart(2, '0');
-        return `${hour}:${min}:${sec}`
+        const hour = (date.getHours() % 12 || 12).toString().padStart(2, '0');
+        const min = date.getMinutes().toString().padStart(2, '0');
+        const sec = date.getSeconds().toString().padStart(2, '0');
+        return `${hour}:${min}:${sec}`;
     }
 
     return(
@@ -49,9 +50,9 @@ export default function Page() {
                     <p>Đợi xíu fen, tui đang load</p>
                 </div> }
     
-                <p>{time && formatDate()}</p>
+                <p>{time && formatDate(time)}</p>
                 <br />
-                <p>{time && formatTime()}</p>
+                <p>{time && formatTime(time)}</p>
             </div>
         </>
     )
