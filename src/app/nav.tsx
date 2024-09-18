@@ -9,15 +9,15 @@ export default function Nav() {
     const nav_list = [
         {
             name:"Home",
-            href: "/"
+            href: "/",
         },
         {
             name: "app đếm tiền",
-            href: '/dem-tien'
+            href: '/dem-tien',
         },
         {
             name: "đồng hồ",
-            href: '/dong-ho'
+            href: '/dong-ho',
         },
     ]
 

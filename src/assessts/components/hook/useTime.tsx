@@ -5,8 +5,6 @@ export default function useTime() {
     const [time, setTime] = useState<Date | boolean>(false);
 
     useEffect(() => {
-        const now = new Date();
-        document.title = formatTime(now);
         const intervalID =  setInterval(() => {
             const now = new Date();
             setTime(now);
