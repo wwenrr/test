@@ -1,10 +1,18 @@
+'use client'
+
 import React from "react";
 import style from "@/assessts/css/nav.module.scss"
-import { time } from "console";
 import Link from 'next/link';
+import useTime from "@/assessts/components/hook/useTime";
 
 export default function Nav() {
+    const time = useTime();
+    
     const nav_list = [
+        {
+            name:"Home",
+            href: "/"
+        },
         {
             name: "app đếm tiền",
             href: '/dem-tien'

@@ -4,7 +4,8 @@ import './style.scss'
 import useTime from "@/assessts/components/hook/useTime";
 
 export default function Page() {
-    const time = useTime();
+    const time  = useTime();
+    const time1 = useTime();
 
     return(
         <>
