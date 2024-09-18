@@ -47,6 +47,7 @@
             cursor: pointer;
             transform: scale(1.05);
             color: black;
+            background-color: #F5F7F8;
         }
 
         &:active {
@@ -58,12 +59,13 @@
             cursor: default; 
             transform: scale(1); 
             opacity: 1; 
+            background-color: #EEEEEE;
         }
     }
 
     .active {
         background-color: #EEEEEE;
-        font-weight: bold;
+        box-shadow: 1px 1px 1px black
     }
 }
 

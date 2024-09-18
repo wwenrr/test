@@ -23,21 +23,13 @@ export default function Nav() {
         },
     ]
 
-    useEffect(() => {
-        console.log(path)
-    }, [path])
-
-    useEffect(() => {
-        console.log("tui đang bị lag")   
-    })
-
     return(
         <>
             <nav className={style.nav}>
                 {
                     nav_list.map((item, index) => (
                         <Link href={item.href} 
-                        className={`${style.box} ${path === item.href ? style.active : ''}`}  
+                            className={`${style.box} ${path === item.href ? style.active : ''}`}  
                             key={index}
                             id={index.toString()}
                         >
