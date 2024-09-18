@@ -31,7 +31,6 @@ export default function Nav() {
                         <Link href={item.href} 
                             className={`${style.box} ${path === item.href ? style.active : ''}`}  
                             key={index}
-                            id={index.toString()}
                         >
                             <p>{item.name}</p>
 
