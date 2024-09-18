@@ -6,8 +6,6 @@ import Link from 'next/link';
 import useTime from "@/assessts/components/hook/useTime";
 
 export default function Nav() {
-    const time = useTime();
-    
     const nav_list = [
         {
             name:"Home",

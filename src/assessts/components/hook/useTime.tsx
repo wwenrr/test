@@ -13,9 +13,9 @@ export default function useTime() {
             document.title = formatTime(now);
         }, 1000)
 
-        // return () => {
-        //     clearInterval(intervalID);
-        // }
+        return () => {
+            clearInterval(intervalID);
+        }
     }, []);
 
     function formatTime(date: Date|boolean) {

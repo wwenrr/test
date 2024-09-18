@@ -3,6 +3,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import './style.scss'
+import { Metadata } from "next";
 
 
 let value:number = 0;
@@ -138,12 +139,12 @@ export default function Main( {props}:any) {
           setText(prev => readNumber(value))
           e.target.value = new Intl.NumberFormat('vi-VN').format(value);
         }
+
+        document.title = e.target.value.toString();
     }
 
     useEffect(() => {
-      console.log("api key là: ", process.env.NEXT_PUBLIC_URL?.toString())
-      console.log("fetching from ", `${process.env.NEXT_PUBLIC_URL}/api`)
-      console.log(props)
+      document.title = "waiting for input..."
     }, [])
 
     return(
