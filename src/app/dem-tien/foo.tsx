@@ -1,9 +1,10 @@
 'use client'
 
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useState } from "react";
 import './style.scss'
 import { Metadata } from "next";
+import style from "@/assessts/css/nav.module.scss"
 
 
 let value:number = 0;
@@ -120,6 +121,7 @@ const readNumber = (num: number): string => {
 
 export default function Foo( {props}:any) {
     const [text, setText] = useState('nhập đại số nào đi')
+    const ref = useRef(null)
       
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
         value = e.target.value.length === 0 ? 0 : parseInt(e.target.value.replace(/\./g, '')); 
@@ -144,12 +146,12 @@ export default function Foo( {props}:any) {
     }
 
     useEffect(() => {
-        
+      
     }, [])
 
     return(
         <>
-            <div style={{fontSize: '25px'}} className="main">
+            <div style={{fontSize: '25px'}} className="main" ref={ref}>
                 <input type="text" onChange={handleChange}/>
                 <div className="">{text}</div>
             </div>
